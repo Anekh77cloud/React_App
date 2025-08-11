@@ -382,18 +382,25 @@ const products = [
 
 ];
 
-export default function Products({ addToCart }) {
+export default function Products({ addToCart, searchTerm = '' }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('name');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm);
   const navigate = useNavigate();
+
+  // Update local search term when prop changes
+  React.useEffect(() => {
+    setLocalSearchTerm(searchTerm);
+  }, [searchTerm]);
 
   const categories = ['All', 'Coir Products', 'Clay & Pottery', 'Bamboo Crafts', 'Jute & Hemp', 'Palm Leaf Crafts', 'Natural Fiber Bags'];
 
   const filteredProducts = products.filter(product => {
     const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = product.name.toLowerCase().includes(localSearchTerm.toLowerCase()) ||
+                         product.description.toLowerCase().includes(localSearchTerm.toLowerCase()) ||
+                         product.material.toLowerCase().includes(localSearchTerm.toLowerCase()) ||
+                         product.category.toLowerCase().includes(localSearchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -424,8 +431,8 @@ export default function Products({ addToCart }) {
             <input
               type="text"
               placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={localSearchTerm}
+              onChange={(e) => setLocalSearchTerm(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             />
           </div>

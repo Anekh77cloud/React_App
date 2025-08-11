@@ -10,6 +10,7 @@ import About from './About';
 import ProductDetails from './ProductDetails';
 import Login from './Login';
 import Signup from './Signup';
+import Admin from './Admin';
 import Shipping from './Shipping';
 import './App.css';
 
@@ -18,6 +19,8 @@ function App() {
   const [user, setUser] = useState({ name: 'Anekh', email: 'anekh@example.com' }); // Example user
   const [notification, setNotification] = useState('');
   const [showSplash, setShowSplash] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [products, setProducts] = useState([]); // For admin to add products
 
   const addToCart = (product) => {
     if (cart.some(item => item.id === product.id)) {
@@ -28,6 +31,15 @@ function App() {
     setCart((prevCart) => [...prevCart, product]);
     setNotification(`${product.name} added to cart!`);
     setTimeout(() => setNotification(''), 3000);
+  };
+
+  const addProduct = (product) => {
+    setProducts(prev => [...prev, product]);
+    console.log('Product added:', product); // You can save to database here
+  };
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
   };
 
   const removeFromCart = (productId) => {
@@ -56,18 +68,19 @@ function App() {
       )}
       <Router>
         
-        <Navbar user={user} onSignOut={handleSignOut} />
+        <Navbar user={user} onSignOut={handleSignOut} onSearch={handleSearch} />
         <main className="pt-20 flex-1">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <Routes>
               <Route path="/" element={<Home addToCart={addToCart} />} />
-              <Route path="/products" element={<Products addToCart={addToCart} />} />
+              <Route path="/products" element={<Products addToCart={addToCart} searchTerm={searchTerm} />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/products/:id" element={<ProductDetails addToCart={addToCart} />} />
               <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login onLogin={setUser} />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/admin" element={<Admin user={user} addProduct={addProduct} />} />
               <Route path="/shipping" element={<Shipping cart={cart} />} />
             </Routes>
           </div>
