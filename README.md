@@ -1,12 +1,43 @@
-# React + Vite
+# 🌿 Kerala Crafts – Handmade Coir & Clay Products
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kerala Crafts is an e-commerce platform dedicated to promoting eco-friendly, handmade coir and clay products from Kerala, India.  
+Our mission is to reduce plastic dependency while supporting millions of artisans who keep our traditions alive.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Splash Screen Intro**
+  - Displays logo, site name, and mission statement when the site loads.
+- **Interactive Banners**
+  - Moving product carousels highlighting seasonal sales, artisan stories, and featured collections.
+- **Responsive Design**
+  - Mobile-friendly layout with smooth animations.
+- **Cultural Branding**
+  - Kerala-inspired color palette, textures, and typography.
+- **Eco-Friendly Focus**
+  - All products are natural, biodegradable, and support sustainable living.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Screenshot
+
+> _Coming soon..._ (Add a screenshot or GIF of your homepage here)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript (with Carousel libraries like Swiper.js / React-Slick)
+- **Styling:** Tailwind CSS / Custom CSS
+- **Animations:** CSS keyframes & JavaScript for smooth fade/slide effects
+- **Hosting:** Netlify / Vercel / AWS Amplify
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/kerala-crafts.git
+cd kerala-crafts
