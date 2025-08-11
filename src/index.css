@@ -72,6 +72,69 @@
   }
 }
 
+/* Craft Elements Animation for Splash Screen */
+.craft-element {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.2;
+  animation: craftFloat 8s ease-in-out infinite;
+}
+
+.craft-element.element-1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.craft-element.element-2 {
+  top: 25%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+.craft-element.element-3 {
+  top: 60%;
+  left: 8%;
+  animation-delay: 3s;
+}
+
+.craft-element.element-4 {
+  top: 70%;
+  right: 12%;
+  animation-delay: 4.5s;
+}
+
+.craft-element.element-5 {
+  top: 40%;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.craft-element.element-6 {
+  top: 80%;
+  left: 50%;
+  animation-delay: 6s;
+}
+
+@keyframes craftFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-15px) rotate(-5deg);
+    opacity: 0.5;
+  }
+}
+
 /* Kerala-inspired animations for Login/Signup pages */
 
 /* Coconut Leaves Animation */

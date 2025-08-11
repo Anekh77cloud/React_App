@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SplashScreen from './components/SplashScreen';
 import Navbar from './Navbar';
 import Home from './Home';
 import Products from './Products';
@@ -16,6 +17,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState({ name: 'Anekh', email: 'anekh@example.com' }); // Example user
   const [notification, setNotification] = useState('');
+  const [showSplash, setShowSplash] = useState(true);
 
   const addToCart = (product) => {
     if (cart.some(item => item.id === product.id)) {
@@ -35,6 +37,14 @@ function App() {
   const handleSignOut = () => {
     setUser(null);
   };
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
+  if (showSplash) {
+    return <SplashScreen onComplete={handleSplashComplete} />;
+  }
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-gray-50 flex flex-col">
